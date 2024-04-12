@@ -6,7 +6,7 @@ dotenv.config({
 
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/auth/signup`, {
+    const response = await fetch(`https://mainmart-backend.vercel.app/auth/signup`, {
       method: 'POST',
       body: JSON.stringify(userData),
       headers: { 'content-type': 'application/json' },
@@ -20,7 +20,7 @@ export function checkUser(loginInfo) {
   console.log(`${process.env.PORT}`);
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(`http://localhost:${process.env.PORT}/auth/login`, {
+      const response = await fetch(`https://mainmart-backend.vercel.app/auth/login`, {
         method: 'POST',
         body: JSON.stringify(loginInfo),
         headers: { 'content-type': 'application/json' },

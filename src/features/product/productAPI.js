@@ -15,7 +15,7 @@ function extractPrices(inputString) {
 export function fetchAllProducts() {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch(`http://localhost:${process.env.PORT}/products`);
+    const response = await fetch(`https://mainmart-backend.vercel.app/products`);
     const data = await response.json();
     resolve({ data });
   });
@@ -23,14 +23,14 @@ export function fetchAllProducts() {
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch(`http://localhost:${process.env.PORT}/products/` + id);
+    const response = await fetch(`https://mainmart-backend.vercel.app/products/` + id);
     const data = await response.json();
     resolve({ data });
   });
 }
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/products/`, {
+    const response = await fetch(`https://mainmart-backend.vercel.app/products/`, {
       method: 'POST',
       body: JSON.stringify(product),
       headers: { 'content-type': 'application/json' },
@@ -42,7 +42,7 @@ export function createProduct(product) {
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `http://localhost:${process.env.PORT}/products/` + update.id,
+      `https://mainmart-backend.vercel.app/products/` + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -78,7 +78,7 @@ export function fetchProductsByFilters(filter, sort, pagination) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
     const response = await fetch(
-      `http://localhost:${process.env.PORT}/products?` + queryString
+      `https://mainmart-backend.vercel.app/products?` + queryString
     );
     const data = await response.json();
     const totalItems = await response.headers.get('X-Total-Count');
@@ -87,14 +87,14 @@ export function fetchProductsByFilters(filter, sort, pagination) {
 }
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/categories`);
+    const response = await fetch(`https://mainmart-backend.vercel.app/categories`);
     const data = await response.json();
     resolve({ data });
   });
 }
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/brands`);
+    const response = await fetch(`https://mainmart-backend.vercel.app/brands`);
     const data = await response.json();
     resolve({ data });
   });

@@ -1,6 +1,6 @@
 export function fetchLoggedInUserOrders(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/orders/user.id` + userId)
+    const response = await fetch(`https://mainmart-backend.vercel.app/orders/user.id` + userId)
     const data = await response.json()
     resolve({ data })
   }
@@ -8,7 +8,7 @@ export function fetchLoggedInUserOrders(userId) {
 }
 export function fetchLoggedInUser(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/users/` + userId)
+    const response = await fetch(`https://mainmart-backend.vercel.app/users/` + userId)
     const data = await response.json()
     resolve({ data })
   }
@@ -17,7 +17,7 @@ export function fetchLoggedInUser(userId) {
 
 export function updateUser(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch(`http://localhost:${process.env.PORT}/users/` + update.id, {
+    const response = await fetch(`https://mainmart-backend.vercel.app/users/` + update.id, {
       method: 'PATCH',
       body: JSON.stringify(update),
       headers: { 'content-type': 'application/json' },
